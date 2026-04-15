@@ -1,0 +1,295 @@
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
+html, body{
+    margin:0;
+    padding:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#f4f6f9;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    transition:0.2s;
+}
+
+.table{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.card-box{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar{
+    background: linear-gradient(to left, #0f172a, #1e3a8a);
+}
+
+.nav-link:hover{
+    color:#facc15 !important;
+}
+
+/* ========================= */
+/* DASHBOARD */
+/* ========================= */
+
+.dashboard-page .welcome-box{
+    background: linear-gradient(to right, #0f172a, #1e3a8a);
+    color:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.dashboard-page .menu-card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-page .menu-card:hover{
+    transform:translateY(-5px);
+}
+
+.dashboard-page .icon{
+    font-size:30px;
+    margin-right:15px;
+}
+
+.dashboard-page .card{
+    border:none;
+    border-radius:10px;
+}
+
+/* ========================= */
+/* EVENT */
+/* ========================= */
+
+.event-page .table{
+    font-size:13px;
+}
+
+.event-page .table td,
+.event-page .table th{
+    padding:6px;
+}
+
+.event-page .img-event{
+    width:55px;
+    height:40px;
+    object-fit:cover;
+    border-radius:6px;
+}
+
+.event-page .badge{
+    padding:5px 8px;
+    border-radius:15px;
+    font-size:11px;
+}
+
+.event-page .status-selesai{ background:#1cc88a; color:white; }
+.event-page .status-proses{ background:#f6c23e; color:white; }
+.event-page .status-batal{ background:#e74a3b; color:white; }
+
+/* ========================= */
+/* STATISTIK */
+/* ========================= */
+
+.statistik-page canvas{
+    background:white;
+    border-radius:10px;
+    padding:10px;
+}
+
+/* ========================= */
+/* LOGIN (FIX TOTAL 🔥) */
+/* ========================= */
+
+/* override global background */
+body.login-page{
+    background: url('https://share.google/Vw5SwqHK0jjGrKXyP') no-repeat center center/cover !important;
+    height:100vh;
+}
+
+/* overlay */
+.login-page .overlay{
+    background: rgba(0,0,0,0.6);
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+/* container */
+.login-page .login-container{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+}
+
+/* box login */
+.login-page .login-box{
+    background: rgba(255,255,255,0.95);
+    padding:50px;
+    border-radius:15px;
+    width:350px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    text-align:center;
+    backdrop-filter: blur(5px);
+}
+
+/* form */
+.login-page .login-form{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* tombol */
+.login-page .btn-login{
+    background:#2d6ca2;
+    color:white;
+    border:none;
+}
+
+.login-page .btn-login:hover{
+    background:#1f4e7a;
+}
+
+/* logo */
+.login-page .logo{
+    width:70px;
+    margin-bottom:10px;
+}
+/* ========================= */
+/* FOOTER FIX (MIRIP GAMBAR) */
+/* ========================= */
+
+.footer{
+    background: linear-gradient(to right, #0f172a, #1e3a8a);
+    color:#fff;
+    padding:40px 0 15px;
+}
+
+/* biar isi ketengah seperti gambar */
+.footer .footer-container{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:30px;
+}
+
+/* kolom */
+.footer .footer-col{
+    flex:1;
+}
+
+/* kolom kiri (logo + sosmed) */
+.footer .footer-col:first-child{
+    max-width:250px;
+}
+
+/* logo */
+.footer .logo{
+    width:60px;
+    margin-bottom:10px;
+}
+
+/* nama kampus */
+.footer strong{
+    color:#facc15;
+    font-size:14px;
+}
+
+/* list menu */
+.footer h6{
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.footer ul{
+    list-style:none;
+    padding:0;
+}
+
+.footer ul li{
+    margin:5px 0;
+}
+
+.footer ul li a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:13px;
+}
+
+.footer ul li a:hover{
+    color:#fff;
+}
+
+/* social icon */
+.footer .social-icons{
+    margin-top:10px;
+}
+
+.footer .social-icons i{
+    margin-right:10px;
+    font-size:16px;
+    color:#ddd;
+    cursor:pointer;
+}
+
+.footer .social-icons i:hover{
+    color:#fff;
+}
+
+/* MAP (dibuat kecil seperti gambar) */
+.footer iframe{
+    width:230px;
+    height:130px;
+    border:none;
+    border-radius:10px;
+}
+
+/* garis bawah */
+.footer .footer-bottom{
+    text-align:center;
+    margin-top:25px;
+    padding-top:10px;
+    border-top:1px solid rgba(255,255,255,0.2);
+    font-size:13px;
+    color:#ddd;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+    .footer .footer-container{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .footer iframe{
+        width:100%;
+    }
+}
