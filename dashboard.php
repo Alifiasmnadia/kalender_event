@@ -2,7 +2,8 @@
 session_start();
 
 if(!isset($_SESSION['user_id'])){
-header("Location:index.php");
+    header("Location:index.php");
+    exit;
 }
 
 include "koneksi.php";
@@ -45,73 +46,32 @@ $data = [
 <html>
 <head>
 <title>Dashboard Admin UBSI</title>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body class="dashboard-page">
 
-<!-- TOPBAR -->
 <?php
 $halaman = basename($_SERVER['PHP_SELF']);
+include 'navbar.php'; // ✅ include navbar
 ?>
-
-<nav class="navbar navbar-expand-lg navbar-dark shadow" style="background: linear-gradient(to left, #0f172a, #1e3a8a);">
-  <div class="container">
-
-    <a class="navbar-brand fw-bold" href="dashboard.php">🎓 Admin UBSI</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="nav">
-
-      <!-- MENU -->
-      <ul class="navbar-nav ms-auto">
-
-        <li class="nav-item">
-          <a class="nav-link <?= ($halaman=='dashboard.php')?'active fw-bold':'' ?>" href="dashboard.php">
-            Dashboard
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link <?= ($halaman=='event.php')?'active fw-bold':'' ?>" href="event.php">
-            Event
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link <?= ($halaman=='statistik.php')?'active fw-bold':'' ?>" href="statistik.php">
-            Statistik
-          </a>
-        </li>
-
-        <!-- USER -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-            <?= isset($_SESSION['nama']) ? $_SESSION['nama'] : 'User'; ?>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item text-danger" href="logout.php">Logout</a></li>
-          </ul>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-</nav>
 
 <div class="container mt-4">
 
 <!-- WELCOME -->
 <div class="welcome-box">
-<h5 class="mb-1">👋 Selamat Datang, <b>Alifia</b></h5>
+<h5 class="mb-1">
+👋 Selamat Datang, 
+<b>
+<?= (isset($_SESSION['role']) && $_SESSION['role']=="admin") 
+    ? "Admin ".$_SESSION['nama'] 
+    : $_SESSION['nama']; ?>
+</b>
+</h5>
 <small>Kelola data event dengan mudah 🚀</small>
 </div>
 
@@ -140,7 +100,9 @@ $halaman = basename($_SERVER['PHP_SELF']);
 <div>
 <h5>Data Statistik</h5>
 <small>Menganalisis statistik event</small><br>
-<a href="statistik.php" class="btn btn-primary btn-sm mt-2">Lihat Statistik </a>
+<a href="statistik.php" class="btn btn-primary btn-sm mt-2">
+  Lihat Statistik
+</a>
 </div>
 </div>
 </div>
@@ -236,8 +198,8 @@ while($d = mysqli_fetch_array($query)){
 
 </div>
 
+<!-- CHART -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <script>
 const ctx = document.getElementById('grafikEvent').getContext('2d');
 
@@ -268,12 +230,11 @@ backgroundColor:[
 });
 </script>
 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-
-
+<!-- FOOTER -->
 <?php include 'footer.php'; ?>
+
+<!-- WAJIB: Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

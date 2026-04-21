@@ -38,7 +38,13 @@ html, body{
 .nav-link:hover{
     color:#facc15 !important;
 }
+.navbar {
+    z-index: 9999;
+}
 
+.dropdown-menu {
+    z-index: 9999;
+}
 /* ========================= */
 /* DASHBOARD */
 /* ========================= */
@@ -70,6 +76,7 @@ html, body{
     border:none;
     border-radius:10px;
 }
+
 
 /* ========================= */
 /* EVENT */
@@ -178,118 +185,149 @@ body.login-page{
     margin-bottom:10px;
 }
 /* ========================= */
-/* FOOTER FIX (MIRIP GAMBAR) */
+/* FOOTER FIX RAPI 🔥 */
 /* ========================= */
 
-.footer{
-    background: linear-gradient(to right, #0f172a, #1e3a8a);
-    color:#fff;
-    padding:40px 0 15px;
+.footer-custom{
+   background: linear-gradient(to right, #0f172a, #1e3a8a) !important;
+    color:#fff !important;
+    padding:40px 20px 15px;
 }
 
-/* biar isi ketengah seperti gambar */
-.footer .footer-container{
+.footer-custom .footer-container{
     max-width:1100px;
     margin:auto;
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
+    flex-wrap:wrap;
     gap:30px;
 }
 
-/* kolom */
-.footer .footer-col{
+/* semua kolom */
+.footer-custom .footer-col{
     flex:1;
+    min-width:180px;
 }
 
-/* kolom kiri (logo + sosmed) */
-.footer .footer-col:first-child{
+/* kolom logo */
+.footer-custom .footer-col:first-child{
     max-width:250px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
 }
 
 /* logo */
-.footer .logo{
-    width:60px;
+.footer-custom .logo{
+    width:80px;
     margin-bottom:10px;
 }
 
-/* nama kampus */
-.footer strong{
+/* teks kampus */
+.footer-custom strong{
     color:#facc15;
     font-size:14px;
 }
 
-/* list menu */
-.footer h6{
-    font-size:15px;
+/* menu */
+.footer-custom h6{
     margin-bottom:10px;
 }
 
-.footer ul{
+.footer-custom ul{
     list-style:none;
     padding:0;
 }
 
-.footer ul li{
+.footer-custom ul li{
     margin:5px 0;
 }
 
-.footer ul li a{
+.footer-custom ul li a{
     color:#ddd;
     text-decoration:none;
     font-size:13px;
 }
 
-.footer ul li a:hover{
+.footer-custom ul li a:hover{
     color:#fff;
 }
 
-/* social icon */
-.footer .social-icons{
+/* icon sosmed */
+.footer-custom .social-icons{
+    display:flex;
+    gap:12px;
     margin-top:10px;
 }
 
-.footer .social-icons i{
-    margin-right:10px;
+.footer-custom .social-icons i{
     font-size:16px;
-    color:#ddd;
+    width:35px;
+    height:35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
     cursor:pointer;
+    transition:0.3s;
 }
 
-.footer .social-icons i:hover{
-    color:#fff;
+.footer-custom .social-icons i:hover{
+    background:#facc15;
+    color:black;
 }
 
-/* MAP (dibuat kecil seperti gambar) */
-.footer iframe{
-    width:230px;
-    height:130px;
+/* map */
+.footer-custom iframe{
+    width:100%;
+    max-width:300px;
+    height:180px;
     border:none;
     border-radius:10px;
 }
 
-/* garis bawah */
-.footer .footer-bottom{
+/* bawah */
+.footer-custom .footer-bottom{
     text-align:center;
-    margin-top:25px;
+    margin-top:30px;
     padding-top:10px;
     border-top:1px solid rgba(255,255,255,0.2);
     font-size:13px;
     color:#ddd;
 }
 
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
-
+/* responsive */
 @media(max-width:768px){
     .footer .footer-container{
         flex-direction:column;
         align-items:center;
         text-align:center;
     }
+}
+.social-icons a{
+    color: inherit;
+    text-decoration: none;
+}
+.social-icons a:hover{
+    color: #facc15;
+}
+.footer-custom h6{
+    color: #facc15; /* kuning */
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
 
-    .footer iframe{
-        width:100%;
-    }
+/* garis bawah */
+.footer-custom h6::after{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #facc15;
+    margin-top: 5px;
+    border-radius: 2px;
 }

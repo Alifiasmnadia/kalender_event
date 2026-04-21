@@ -11,9 +11,10 @@ if(isset($_POST['login'])){
     $data = mysqli_fetch_assoc($query);
 
     if($data){
-        $_SESSION['user_id'] = $data['id'];
-        $_SESSION['email'] = $data['email'];
-
+       $_SESSION['user_id'] = $data['id'];
+$_SESSION['email'] = $data['email'];
+$_SESSION['nama'] = $data['nama'];   // WAJIB
+$_SESSION['role'] = $data['role'];   // kalau ada kolom role
         header("Location:dashboard.php");
     }else{
         $error = "Email atau Password salah!";
@@ -25,76 +26,12 @@ if(isset($_POST['login'])){
 <html>
 <head>
 <title>Login UBSI</title>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<style>
-
-body{
-    background: url('https://share.google/Vw5SwqHK0jjGrKXyP') no-repeat center center/cover;
-    height:100vh;
-    margin:0;
-}
-
-/* overlay gelap */
-.overlay{
-    background: rgba(0,0,0,0.6);
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-}
-
-/* container */
-.login-container{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    z-index:2;
-}
-
-/* box login */
-.login-box{
-    background: rgba(255,255,255,0.95);
-    padding:50px;
-    border-radius:15px;
-    width:350px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-    text-align:center;
-    backdrop-filter: blur(5px);
-}
-
-/* form */
-.login-form{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    margin-top:20px;
-}
-
-/* tombol */
-.btn-login{
-    background:#2d6ca2;
-    color:white;
-    border:none;
-}
-.btn-login:hover{
-    background:#1f4e7a;
-}
-
-/* logo */
-.logo{
-    width:70px;
-    margin-bottom:10px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
-<body>
+<body class="login-page">
 
 <div class="overlay"></div>
 
@@ -133,4 +70,4 @@ body{
 </div>
 
 </body>
-</html> 
+</html>
